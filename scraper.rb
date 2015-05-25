@@ -47,7 +47,7 @@ def scrape_mp(url)
     email: box.at_css('div.pop-emailid').text.strip,
     img: box.at_css('div.left-img img/@src').text,
     source: url,
-    term: 3,
+    term: 2,
   }
   data[:role] = '' if data[:role] == 'MP'
   puts data
