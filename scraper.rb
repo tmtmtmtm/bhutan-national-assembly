@@ -37,13 +37,15 @@ end
 def scrape_mp(url)
   noko = noko_for(url)
   box = noko.css('.memberabouttext')
+  (party_name, party_id) = box.at_xpath('.//strong[contains(.,"Party")]//following::text()').text.strip.match(/(.*)\s+\((.*)\)/).captures
   data = { 
     id: File.basename(url),
     name: box.at_xpath('.//strong[contains(.,"Name")]//following::text()').text.strip,
     executive: box.at_xpath('.//strong[contains(.,"Designation")]//following::text()').text.strip,
     constituency: box.at_xpath('.//strong[contains(.,"Constituency")]//following::text()').text.strip,
     start_date: datefrom(box.at_xpath('.//strong[contains(.,"Election Date")]//following::text()').text.strip).to_s,
-    party: box.at_xpath('.//strong[contains(.,"Party")]//following::text()').text.strip,
+    party_name: party_name,
+    party_id: party_id,
     email: box.at_css('div.pop-emailid').text.strip,
     img: box.at_css('div.left-img img/@src').text,
     source: url,
