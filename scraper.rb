@@ -51,7 +51,7 @@ def scrape_mp(url)
     source: url,
     term: 2,
   }
-  data[:role] = '' if data[:role] == 'MP'
+  data[:executive] = '' if data[:executive] == 'MP'
   puts data
   ScraperWiki.save_sqlite([:id, :term], data)
 end
