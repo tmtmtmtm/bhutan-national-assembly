@@ -48,7 +48,7 @@ def scrape_mp(url)
     term:         2,
   }
   data[:executive] = '' if data[:executive] == 'MP'
-  puts data
+  # puts data
   ScraperWiki.save_sqlite(%i(id term), data)
 end
 
