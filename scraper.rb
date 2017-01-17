@@ -29,7 +29,11 @@ class MemberPage < Scraped::HTML
   end
 
   field :name do
-    box.at_xpath('.//strong[contains(.,"Name")]//following::text()').text.tidy
+    raw_name.sub('Lyonpo', '').tidy
+  end
+
+  field :honorific_prefix do
+    'Lyonopo' if raw_name.include? 'Lyonpo'
   end
 
   field :executive do
@@ -67,6 +71,10 @@ class MemberPage < Scraped::HTML
   end
 
   private
+
+  def raw_name
+    box.at_xpath('.//strong[contains(.,"Name")]//following::text()').text.tidy
+  end
 
   def party_data
     box.at_xpath('.//strong[contains(.,"Party")]//following::text()').text.tidy.match(/(.*)\s+\((.*)\)/).captures
