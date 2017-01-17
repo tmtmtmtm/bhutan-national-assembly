@@ -3,8 +3,8 @@
 # frozen_string_literal: true
 
 require 'date'
-require 'nokogiri'
-require 'open-uri'
+require 'pry'
+require 'scraped'
 require 'scraperwiki'
 
 # require 'open-uri/cached'
@@ -34,16 +34,16 @@ end
 def scrape_mp(url)
   noko = noko_for(url)
   box = noko.css('.memberabouttext')
-  (party_name, party_id) = box.at_xpath('.//strong[contains(.,"Party")]//following::text()').text.strip.match(/(.*)\s+\((.*)\)/).captures
+  (party_name, party_id) = box.at_xpath('.//strong[contains(.,"Party")]//following::text()').text.tidy.match(/(.*)\s+\((.*)\)/).captures
   data = {
     id:           File.basename(url),
-    name:         box.at_xpath('.//strong[contains(.,"Name")]//following::text()').text.strip,
-    executive:    box.at_xpath('.//strong[contains(.,"Designation")]//following::text()').text.strip,
-    constituency: box.at_xpath('.//strong[contains(.,"Constituency")]//following::text()').text.strip,
-    start_date:   datefrom(box.at_xpath('.//strong[contains(.,"Election Date")]//following::text()').text.strip).to_s,
+    name:         box.at_xpath('.//strong[contains(.,"Name")]//following::text()').text.tidy,
+    executive:    box.at_xpath('.//strong[contains(.,"Designation")]//following::text()').text.tidy,
+    constituency: box.at_xpath('.//strong[contains(.,"Constituency")]//following::text()').text.tidy,
+    start_date:   datefrom(box.at_xpath('.//strong[contains(.,"Election Date")]//following::text()').text.tidy).to_s,
     party_name:   party_name,
     party_id:     party_id,
-    email:        box.at_css('div.pop-emailid').text.strip,
+    email:        box.at_css('div.pop-emailid').text.tidy,
     img:          box.at_css('div.left-img img/@src').text,
     source:       url,
     term:         2,
