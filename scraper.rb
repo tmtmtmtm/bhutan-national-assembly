@@ -66,10 +66,6 @@ class MemberPage < Scraped::HTML
     url
   end
 
-  field :term do
-    2
-  end
-
   private
 
   def party_data
@@ -100,7 +96,7 @@ def scrape_list(url)
 end
 
 def scrape_mp(url)
-  data = scrape(url => MemberPage).to_h
+  data = scrape(url => MemberPage).to_h.merge(term: 2)
   puts data
   ScraperWiki.save_sqlite(%i(id term), data)
 end
