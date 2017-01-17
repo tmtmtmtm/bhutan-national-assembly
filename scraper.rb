@@ -11,48 +11,99 @@ require 'scraperwiki'
 # OpenURI::Cache.cache_path = '.cache'
 require 'scraped_page_archive/open-uri'
 
-def noko_for(url)
-  url.prepend @BASE unless url.start_with? 'http:'
-  Nokogiri::HTML(open(url).read)
+class MembersPage < Scraped::HTML
+  field :member_urls do
+    noko.css('ul.member-box li a[@class*="member-details"]/@href').map(&:text)
+  end
+
+  field :next_page do
+    if next_arrow = noko.at_css('div.pagination-btm img[@src*="next.gif"]')
+      next_arrow.parent.attr('href')
+    end
+  end
 end
 
-def datefrom(date)
-  Date.parse(date)
+class MemberPage < Scraped::HTML
+  field :id do
+    File.basename(url)
+  end
+
+  field :name do
+    box.at_xpath('.//strong[contains(.,"Name")]//following::text()').text.tidy
+  end
+
+  field :executive do
+    text = box.at_xpath('.//strong[contains(.,"Designation")]//following::text()').text.tidy
+    return '' if text == 'MP'
+    text
+  end
+
+  field :constituency do
+    box.at_xpath('.//strong[contains(.,"Constituency")]//following::text()').text.tidy
+  end
+
+  field :start_date do
+    datefrom(box.at_xpath('.//strong[contains(.,"Election Date")]//following::text()').text.tidy).to_s
+  end
+
+  field :party_name do
+    party_data.first
+  end
+
+  field :party_id do
+    party_data.last
+  end
+
+  field :email do
+    box.at_css('div.pop-emailid').text.tidy
+  end
+
+  field :img do
+    box.at_css('div.left-img img/@src').text
+  end
+
+  field :source do
+    url
+  end
+
+  field :term do
+    2
+  end
+
+  private
+
+  def party_data
+    box.at_xpath('.//strong[contains(.,"Party")]//following::text()').text.tidy.match(/(.*)\s+\((.*)\)/).captures
+  end
+
+  def box
+    noko.css('.memberabouttext')
+  end
+
+  def datefrom(date)
+    Date.parse(date)
+  end
+end
+
+def scrape(h)
+  url, klass = h.to_a.first
+  klass.new(response: Scraped::Request.new(url: url).response)
 end
 
 def scrape_list(url)
-  noko = noko_for(url)
-  noko.css('ul.member-box li a[@class*="member-details"]/@href').map(&:text).each do |mplink|
+  page = scrape(url => MembersPage)
+  page.member_urls.each do |mplink|
     scrape_mp(mplink)
   end
 
-  if next_arrow = noko.at_css('div.pagination-btm img[@src*="next.gif"]')
-    scrape_list(next_arrow.parent.attr('href'))
-  end
+  scrape_list(page.next_page) if page.next_page
 end
 
 def scrape_mp(url)
-  noko = noko_for(url)
-  box = noko.css('.memberabouttext')
-  (party_name, party_id) = box.at_xpath('.//strong[contains(.,"Party")]//following::text()').text.tidy.match(/(.*)\s+\((.*)\)/).captures
-  data = {
-    id:           File.basename(url),
-    name:         box.at_xpath('.//strong[contains(.,"Name")]//following::text()').text.tidy,
-    executive:    box.at_xpath('.//strong[contains(.,"Designation")]//following::text()').text.tidy,
-    constituency: box.at_xpath('.//strong[contains(.,"Constituency")]//following::text()').text.tidy,
-    start_date:   datefrom(box.at_xpath('.//strong[contains(.,"Election Date")]//following::text()').text.tidy).to_s,
-    party_name:   party_name,
-    party_id:     party_id,
-    email:        box.at_css('div.pop-emailid').text.tidy,
-    img:          box.at_css('div.left-img img/@src').text,
-    source:       url,
-    term:         2,
-  }
-  data[:executive] = '' if data[:executive] == 'MP'
-  # puts data
+  data = scrape(url => MemberPage).to_h
+  puts data
   ScraperWiki.save_sqlite(%i(id term), data)
 end
 
-@BASE = 'http://www.nab.gov.bt'
-@PAGE = @BASE + '/member/list_of_members'
-scrape_list(@PAGE)
+start = 'http://www.nab.gov.bt/member/list_of_members'
+scrape_list(start)
