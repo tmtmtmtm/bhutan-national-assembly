@@ -45,6 +45,6 @@ def scrape_mp(url)
   ScraperWiki.save_sqlite(%i[id term], data)
 end
 
-ScraperWiki.sqliteexecute('DELETE FROM data') rescue nil
+ScraperWiki.sqliteexecute('DROP TABLE data') rescue nil
 start = 'http://www.nab.gov.bt/member/list_of_members'
 scrape_list(start)
