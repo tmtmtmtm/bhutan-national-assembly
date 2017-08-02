@@ -18,21 +18,21 @@ response:
     message: OK
   headers:
     Date:
-    - Tue, 01 Aug 2017 06:49:08 GMT
+    - Wed, 02 Aug 2017 03:29:11 GMT
     Server:
     - Apache/2.4.6 (CentOS) PHP/5.4.16
     X-Powered-By:
     - PHP/5.4.16
     Set-Cookie:
-    - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%2271f59ee8b3affb2ca4929a5cee68d2e7%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A10%3A%2210.10.10.1%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A4%3A%22Ruby%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1501570148%3B%7D7ade94c8e8a4d4ee69f96f0bb2f04a05c6dea58e;
-      expires=Tue, 01-Aug-2017 08:49:08 GMT; path=/
-    - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%2271f59ee8b3affb2ca4929a5cee68d2e7%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A10%3A%2210.10.10.1%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A4%3A%22Ruby%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1501570148%3B%7D7ade94c8e8a4d4ee69f96f0bb2f04a05c6dea58e;
-      expires=Tue, 01-Aug-2017 08:49:08 GMT; path=/
-    - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%2271f59ee8b3affb2ca4929a5cee68d2e7%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A10%3A%2210.10.10.1%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A4%3A%22Ruby%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1501570148%3B%7D7ade94c8e8a4d4ee69f96f0bb2f04a05c6dea58e;
-      expires=Tue, 01-Aug-2017 08:49:08 GMT; path=/
-    - ci_session=a%3A5%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%2271f59ee8b3affb2ca4929a5cee68d2e7%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A10%3A%2210.10.10.1%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A4%3A%22Ruby%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1501570148%3Bs%3A9%3A%22user_data%22%3Bs%3A0%3A%22%22%3B%7D394e3716a97c7ba90a251f6d665c00b35280d3ac;
-      expires=Tue, 01-Aug-2017 08:49:08 GMT; path=/
-    - user_lang=en; expires=Tue, 01-Aug-2017 08:49:08 GMT; path=/
+    - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%226ec22d23231a5ef2c0757efa79b779f6%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A10%3A%2210.10.10.1%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A4%3A%22Ruby%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1501644551%3B%7Dc6f30d63bce5de88ac3a9ae425a2eb9f01caf4a1;
+      expires=Wed, 02-Aug-2017 05:29:11 GMT; path=/
+    - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%226ec22d23231a5ef2c0757efa79b779f6%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A10%3A%2210.10.10.1%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A4%3A%22Ruby%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1501644551%3B%7Dc6f30d63bce5de88ac3a9ae425a2eb9f01caf4a1;
+      expires=Wed, 02-Aug-2017 05:29:11 GMT; path=/
+    - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%226ec22d23231a5ef2c0757efa79b779f6%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A10%3A%2210.10.10.1%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A4%3A%22Ruby%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1501644551%3B%7Dc6f30d63bce5de88ac3a9ae425a2eb9f01caf4a1;
+      expires=Wed, 02-Aug-2017 05:29:11 GMT; path=/
+    - ci_session=a%3A5%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%226ec22d23231a5ef2c0757efa79b779f6%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A10%3A%2210.10.10.1%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A4%3A%22Ruby%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1501644551%3Bs%3A9%3A%22user_data%22%3Bs%3A0%3A%22%22%3B%7Deba323024fb24bd00714ad38c671417b9726f18c;
+      expires=Wed, 02-Aug-2017 05:29:11 GMT; path=/
+    - user_lang=en; expires=Wed, 02-Aug-2017 05:29:11 GMT; path=/
     Vary:
     - Accept-Encoding
     Connection:
@@ -44,4 +44,4 @@ response:
   body:
     encoding: ASCII-8BIT
   http_version: 
-recorded_at: Tue, 01 Aug 2017 06:52:03 GMT
+recorded_at: Wed, 02 Aug 2017 03:31:55 GMT
