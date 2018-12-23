@@ -1,0 +1,47 @@
+---
+request:
+  method: get
+  uri: http://www.nab.gov.bt/en/member/member_detail/106
+  body:
+    encoding: US-ASCII
+    string: ''
+  headers:
+    Accept-Encoding:
+    - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+    Accept:
+    - "*/*"
+    User-Agent:
+    - Ruby
+response:
+  status:
+    code: 200
+    message: OK
+  headers:
+    Date:
+    - Sun, 23 Dec 2018 04:28:58 GMT
+    Server:
+    - Apache/2.4.6 (CentOS) PHP/5.4.16
+    X-Powered-By:
+    - PHP/5.4.16
+    Set-Cookie:
+    - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%2216070a24410b6657be5ac2386cccc159%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A10%3A%2210.10.10.1%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A4%3A%22Ruby%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1545539338%3B%7D9ffcf4bea97a3cf6b116e48e561c93e1f61f3c7d;
+      expires=Sun, 23-Dec-2018 06:28:58 GMT; path=/
+    - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%2216070a24410b6657be5ac2386cccc159%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A10%3A%2210.10.10.1%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A4%3A%22Ruby%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1545539338%3B%7D9ffcf4bea97a3cf6b116e48e561c93e1f61f3c7d;
+      expires=Sun, 23-Dec-2018 06:28:58 GMT; path=/
+    - ci_session=a%3A4%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%2216070a24410b6657be5ac2386cccc159%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A10%3A%2210.10.10.1%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A4%3A%22Ruby%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1545539338%3B%7D9ffcf4bea97a3cf6b116e48e561c93e1f61f3c7d;
+      expires=Sun, 23-Dec-2018 06:28:58 GMT; path=/
+    - ci_session=a%3A5%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%2216070a24410b6657be5ac2386cccc159%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A10%3A%2210.10.10.1%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A4%3A%22Ruby%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1545539338%3Bs%3A9%3A%22user_data%22%3Bs%3A0%3A%22%22%3B%7De5c9836fe2ace38fd9b725a70324bdfe24a0b97e;
+      expires=Sun, 23-Dec-2018 06:28:58 GMT; path=/
+    - user_lang=en; expires=Sun, 23-Dec-2018 06:28:58 GMT; path=/
+    Vary:
+    - Accept-Encoding
+    Connection:
+    - keep-alive
+    Content-Length:
+    - '7779'
+    Content-Type:
+    - text/html; charset=UTF-8
+  body:
+    encoding: ASCII-8BIT
+  http_version: 
+recorded_at: Sun, 23 Dec 2018 04:34:56 GMT
